@@ -14,11 +14,11 @@ My adventure and exploration in learning and practicing data structures and algo
 | Quick Sort | O(n log n) | O(n log n) | O(n^2) | O(log n) | Recursive | Yes | Divide and Conquer |
 | Heap Sort | O(n log n) | O(n log n) | O(n log n) | O(1) | Iterative | Yes | Selection |
 
-Linear Search: Simplest search technique; checks each element in sequence.
-Binary Search: Efficient for sorted arrays; repeatedly divides the search interval in half.
-Bubble Sort: Repeatedly swaps adjacent elements if they are in the wrong order.
-Insertion Sort: Builds the final sorted array one item at a time.
-Selection Sort: Selects the smallest (or largest) element from an unsorted sublist and swaps it with the first unsorted element.
-Merge Sort: Divides the array into halves, sorts them independently, and then merges them.
-Quick Sort: Employs a divide-and-conquer strategy to sort the list or array.
-Heap Sort: Converts the array into a heap structure, repeatedly removing the largest element and rebuilding the heap.
+- Linear Search: Simplest search technique; checks each element in sequence.
+- Binary Search: Efficient for sorted arrays; repeatedly divides the search interval in half.
+- Bubble Sort: Repeatedly swaps adjacent elements if they are in the wrong order.
+- Insertion Sort: Builds the final sorted array one item at a time.
+- Selection Sort: Selects the smallest (or largest) element from an unsorted sublist and swaps it with the first unsorted element.
+- Merge Sort: Divides the array into halves, sorts them independently, and then merges them.
+- Quick Sort: Employs a divide-and-conquer strategy to sort the list or array.
+- Heap Sort: Converts the array into a heap structure, repeatedly removing the largest element and rebuilding the heap.
