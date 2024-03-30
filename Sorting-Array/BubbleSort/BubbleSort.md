@@ -19,7 +19,9 @@ This process is repeated for all elements, reducing the number of elements to be
 Best Case: O(n) when the array is already sorted.
 Average and Worst Case: O(n^2) due to the nested loops.
 
-### Space Complexity: O(1) as it only requires a single additional memory space for the swapping process.
+### Space Complexity: 
+
+O(1) as it only requires a single additional memory space for the swapping process.
 
 ## Advantages:
 

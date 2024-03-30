@@ -1,0 +1,52 @@
+/* The heapify function ensures that the tree maintains the heap property.
+heapSort is the main function that performs the sorting using the heapify function.
+The array is first transformed into a heap, and then elements are sorted by repeatedly removing the largest element and heapifying the remaining elements.
+This implementation of Heap Sort in Swift is efficient and showcases how you can use the language's features like inout parameters and stride function for loops. Remember to test and understand each part of the code for your interview. */
+
+import Foundation
+
+func heapify(_ array: inout [Int], _ n: Int, _ i: Int) {
+    var largest = i // Initialize largest as root
+    let left = 2 * i + 1 // left child
+    let right = 2 * i + 2 // right child
+
+    // If left child is larger than root
+    if left < n && array[left] > array[largest] {
+        largest = left
+    }
+
+    // If right child is larger than largest so far
+    if right < n && array[right] > array[largest] {
+        largest = right
+    }
+
+    // If largest is not root
+    if largest != i {
+        array.swapAt(i, largest)
+        // Recursively heapify the affected sub-tree
+        heapify(&array, n, largest)
+    }
+}
+
+func heapSort(_ array: inout [Int]) {
+    let n = array.count
+
+    // Build heap (rearrange array)
+    for i in stride(from: n / 2 - 1, through: 0, by: -1) {
+        heapify(&array, n, i)
+    }
+
+    // One by one extract an element from heap
+    for i in stride(from: n - 1, through: 1, by: -1) {
+        // Move current root to end
+        array.swapAt(0, i)
+
+        // Call max heapify on the reduced heap
+        heapify(&array, i, 0)
+    }
+}
+
+// Example usage
+var arr = [12, 11, 13, 5, 6, 7]
+heapSort(&arr)
+print("Sorted array:", arr)
