@@ -1,0 +1,72 @@
+/*
+
+I'll provide a basic implementation of a hash table in Swift, focusing on key operations such as insertion, deletion, and lookup. This example will use chaining to handle collisions, as it's a commonly understood and straightforward approach.
+
+Usage Example
+Here's a simple example of how you might use this HashTable struct in Swift:
+
+This code provides a basic but functional hash table. In an interview, you can explain that the choice of initial capacity and hash function (hashValue provided by Swift in this case) significantly impacts the performance, especially in terms of handling collisions and maintaining a reasonable load factor. The implementation uses chaining as the collision resolution technique, which is simple and effective for teaching purposes and many practical applications.
+
+Remember, while this example is educational and suitable for interview discussions, real-world applications might require optimizations based on specific use cases, such as custom hash functions or dynamic resizing to maintain optimal load factors.
+
+
+*/
+
+struct HashTable<Key: Hashable, Value> {
+    private typealias Element = (key: Key, value: Value)
+    private typealias Bucket = [Element]
+    private var buckets: [Bucket]
+
+    private(set) var count = 0
+    
+    init(capacity: Int) {
+        assert(capacity > 0)
+        buckets = Array<Bucket>(repeating: [], count: capacity)
+    }
+    
+    private func index(for key: Key) -> Int {
+        return abs(key.hashValue) % buckets.count
+    }
+    
+    // Insertion
+    mutating func insert(_ value: Value, forKey key: Key) {
+        let index = self.index(for: key)
+        // Remove existing element if found
+        remove(key)
+        
+        // Insert new element in the bucket
+        buckets[index].append((key: key, value: value))
+        count += 1
+    }
+    
+    // Lookup
+    func value(forKey key: Key) -> Value? {
+        let index = self.index(for: key)
+        for element in buckets[index] {
+            if element.key == key {
+                return element.value
+            }
+        }
+        return nil // Not found
+    }
+    
+    // Deletion
+    mutating func remove(_ key: Key) {
+        let index = self.index(for: key)
+        if let (i, _) = buckets[index].enumerated().first(where: { $0.element.key == key }) {
+            buckets[index].remove(at: i)
+            count -= 1
+        }
+    }
+}
+
+
+var hashTable = HashTable<String, String>(capacity: 5)
+hashTable.insert("value1", forKey: "key1")
+hashTable.insert("value2", forKey: "key2")
+
+print(hashTable.value(forKey: "key1") ?? "Not found") // Output: "value1"
+print(hashTable.value(forKey: "key2") ?? "Not found") // Output: "value2"
+
+hashTable.remove("key1")
+print(hashTable.value(forKey: "key1") ?? "Not found") // Output: "Not found"
