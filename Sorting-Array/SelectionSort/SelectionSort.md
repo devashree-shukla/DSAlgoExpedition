@@ -19,14 +19,19 @@ Repeat this process for the remainder of the list (starting from the second elem
 
 ## Performance:
 
-### Time Complexity: O(n^2), where n is the number of items being sorted. Even if the array is already sorted, the algorithm will still execute in O(n^2) time, making it inefficient on large lists.
-### Space Complexity: O(1) – it only requires a single additional memory space for the temporary variable used for swapping.
+### Time Complexity: 
+O(n^2), where n is the number of items being sorted. Even if the array is already sorted, the algorithm will still execute in O(n^2) time, making it inefficient on large lists.
+### Space Complexity: 
+O(1) – it only requires a single additional memory space for the temporary variable used for swapping.
 
 ## Advantages and Disadvantages:
 
 
-### Advantages: Simple and easy to understand. No additional memory is required (in-place sorting).
-### Disadvantages: Not efficient for large lists. Has poor performance compared to more advanced algorithms like quicksort, mergesort, or heapsort.
+### Advantages: 
+Simple and easy to understand. No additional memory is required (in-place sorting).
+
+### Disadvantages: 
+Not efficient for large lists. Has poor performance compared to more advanced algorithms like quicksort, mergesort, or heapsort.
 
 ## Use Cases: Suitable for small arrays or when memory space is a premium. It's often used for educational purposes to teach the basics of sorting algorithms.
 
