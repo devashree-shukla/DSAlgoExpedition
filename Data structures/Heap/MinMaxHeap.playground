@@ -1,0 +1,84 @@
+struct MinHeap {
+    var items: [Int] = []
+    
+    // Get Indexes
+    private func getLeftChildIndex(parentIndex: Int) -> Int { return 2 * parentIndex + 1 }
+    private func getRightChildIndex(parentIndex: Int) -> Int { return 2 * parentIndex + 2 }
+    private func getParentIndex(childIndex: Int) -> Int { return (childIndex - 1) / 2 }
+    
+    // Check if exists
+    private func hasLeftChild(index: Int) -> Bool { return getLeftChildIndex(parentIndex: index) < items.count }
+    private func hasRightChild(index: Int) -> Bool { return getRightChildIndex(parentIndex: index) < items.count }
+    private func hasParent(index: Int) -> Bool { return getParentIndex(childIndex: index) >= 0 }
+    
+    // Return item from heap
+    private func leftChild(index: Int) -> Int { return items[getLeftChildIndex(parentIndex: index)] }
+    private func rightChild(index: Int) -> Int { return items[getRightChildIndex(parentIndex: index)] }
+    private func parent(index: Int) -> Int { return items[getParentIndex(childIndex: index)] }
+    
+    // Helper Functions
+    private mutating func swap(indexOne: Int, indexTwo: Int) {
+        (items[indexOne], items[indexTwo]) = (items[indexTwo], items[indexOne])
+    }
+    
+    // Heapify-up
+    private mutating func heapifyUp() {
+        var index = items.count - 1
+        while hasParent(index: index) && parent(index: index) > items[index] {
+            swap(indexOne: getParentIndex(childIndex: index), indexTwo: index)
+            index = getParentIndex(childIndex: index)
+        }
+    }
+    
+    // Heapify-down
+    private mutating func heapifyDown() {
+        var index = 0
+        while hasLeftChild(index: index) {
+            var smallerChildIndex = getLeftChildIndex(parentIndex: index)
+            if hasRightChild(index: index) && rightChild(index: index) < leftChild(index: index) {
+                smallerChildIndex = getRightChildIndex(parentIndex: index)
+            }
+            
+            if items[index] < items[smallerChildIndex] {
+                break
+            } else {
+                swap(indexOne: index, indexTwo: smallerChildIndex)
+            }
+            index = smallerChildIndex
+        }
+    }
+    
+    // Public methods
+    mutating func insert(value: Int) {
+        items.append(value)
+        heapifyUp()
+    }
+    
+    mutating func extractMin() -> Int? {
+        if items.count == 0 {
+            return nil
+        }
+        let value = items[0]
+        items[0] = items[items.count - 1]
+        items.removeLast()
+        heapifyDown()
+        return value
+    }
+    
+    func peek() -> Int? {
+        return items.first
+    }
+}
+
+
+var heap = MinHeap()
+heap.insert(value: 10)
+heap.insert(value: 4)
+heap.insert(value: 5)
+heap.insert(value: 30)
+
+print(heap.peek() ?? "Heap is empty") // Should print the minimum value, which is 4.
+
+if let min = heap.extractMin() {
+    print(min) // Should print and remove the minimum value, which is 4.
+}
