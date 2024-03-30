@@ -1,0 +1,45 @@
+/*
+
+Function quickSort: 
+
+This is the main function that sorts an array. It takes the array (with inout keyword for modifying within the function), and the low and high indices as parameters. If low is less than high, it finds the pivot index through the partition function and recursively sorts the sub-arrays.
+Function partition: This function reorders the array so that all elements with values less than the pivot come before the pivot, while all elements with values greater than the pivot come after it. It returns the index of the pivot element after partitioning.
+inout Parameter: In Swift, the inout keyword is used to modify the parameters within the function. It's crucial for the arr parameter because we're modifying the array in place.
+
+swapAt Method: 
+
+Swift arrays have a handy method swapAt(_:_:) for swapping the values of two array elements, simplifying the swap operation needed during partitioning.
+
+*/
+
+import Foundation
+
+func quickSort(_ arr: inout [Int], low: Int, high: Int) {
+    if low < high {
+        let pivotIndex = partition(&arr, low: low, high: high)
+        
+        // Recursively apply the same logic to the left and right subarrays
+        quickSort(&arr, low: low, high: pivotIndex - 1)
+        quickSort(&arr, low: pivotIndex + 1, high: high)
+    }
+}
+
+func partition(_ arr: inout [Int], low: Int, high: Int) -> Int {
+    let pivot = arr[high]
+    var i = low - 1
+    
+    for j in low..<high {
+        if arr[j] < pivot {
+            i += 1
+            arr.swapAt(i, j)
+        }
+    }
+    
+    arr.swapAt(i + 1, high)
+    return i + 1
+}
+
+// Example usage:
+var numbers = [10, 7, 8, 9, 1, 5]
+quickSort(&numbers, low: 0, high: numbers.count - 1)
+print(numbers)
