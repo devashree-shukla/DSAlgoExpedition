@@ -1,0 +1,24 @@
+class DoublyListNode {
+    var value: Int
+    var prev: DoublyListNode?
+    var next: DoublyListNode?
+
+    init(_ value: Int) {
+        self.value = value
+        self.prev = nil
+        self.next = nil
+    }
+}
+
+func insertAtBeginningDoubly(_ head: DoublyListNode?, _ value: Int) -> DoublyListNode? {
+    let newNode = DoublyListNode(value)
+    newNode.next = head
+    head?.prev = newNode
+    return newNode
+}
+
+func deleteFromBeginningDoubly(_ head: DoublyListNode?) -> DoublyListNode? {
+    let newHead = head?.next
+    newHead?.prev = nil
+    return newHead
+}

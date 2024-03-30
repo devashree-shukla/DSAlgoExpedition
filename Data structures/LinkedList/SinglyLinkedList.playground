@@ -1,0 +1,40 @@
+class ListNode {
+    var value: Int
+    var next: ListNode?
+
+    init(_ value: Int) {
+        self.value = value
+        self.next = nil
+    }
+}
+
+func insertAtBeginning(_ head: ListNode?, _ value: Int) -> ListNode? {
+    let newNode = ListNode(value)
+    newNode.next = head
+    return newNode // new head of the list
+}
+
+func insertAtEnd(_ head: ListNode?, _ value: Int) -> ListNode? {
+    let newNode = ListNode(value)
+    guard let head = head else { return newNode }
+    var current = head
+    while current.next != nil {
+        current = current.next!
+    }
+    current.next = newNode
+    return head
+}
+
+func deleteFromBeginning(_ head: ListNode?) -> ListNode? {
+    return head?.next
+}
+
+func deleteFromEnd(_ head: ListNode?) -> ListNode? {
+    guard head?.next != nil else { return nil }
+    var current = head
+    while current?.next?.next != nil {
+        current = current?.next
+    }
+    current?.next = nil
+    return head
+}
