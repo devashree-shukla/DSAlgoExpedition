@@ -1,0 +1,92 @@
+/*
+
+To-understand Swift implementation of a Binary Tree (not specifically a Binary Search Tree). This example will cover the foundational structure of a binary tree and include simple methods to insert nodes and traverse the tree. This kind of straightforward code is great for interview discussions and quick references.
+
+This Swift code snippet provides a basic structure for a binary tree with insertion logic and three common types of depth-first traversals (pre-order, in-order, and post-order). It's meant to be simple and memorable for interview situations or quick reference. The insertion method used here is straightforward, placing new nodes in the first available position to demonstrate the concept, rather than following the strict rules of a binary search tree.
+
+Feel free to use this code in your GitHub repository as a reference. It can be a good foundation to explain or expand upon during technical discussions, especially when you need to illustrate basic tree operations or traversal algorithms.
+
+*/
+
+class BinaryTreeNode {
+    var value: Int
+    var left: BinaryTreeNode?
+    var right: BinaryTreeNode?
+
+    init(value: Int) {
+        self.value = value
+    }
+}
+
+class BinaryTree {
+    var root: BinaryTreeNode?
+
+    // Simple insertion for demonstration purposes,
+    // in a real binary tree, you would decide where to insert the node
+    func insert(value: Int) {
+        if root == nil {
+            root = BinaryTreeNode(value: value)
+        } else {
+            var current = root
+            while true {
+                if value < current!.value {
+                    if current!.left == nil {
+                        current!.left = BinaryTreeNode(value: value)
+                        break
+                    } else {
+                        current = current!.left
+                    }
+                } else {
+                    if current!.right == nil {
+                        current!.right = BinaryTreeNode(value: value)
+                        break
+                    } else {
+                        current = current!.right
+                    }
+                }
+            }
+        }
+    }
+
+    // Pre-order traversal
+    func preOrderTraversal(_ node: BinaryTreeNode?) {
+        guard let node = node else { return }
+        print(node.value, terminator: " ")
+        preOrderTraversal(node.left)
+        preOrderTraversal(node.right)
+    }
+
+    // In-order traversal
+    func inOrderTraversal(_ node: BinaryTreeNode?) {
+        guard let node = node else { return }
+        inOrderTraversal(node.left)
+        print(node.value, terminator: " ")
+        inOrderTraversal(node.right)
+    }
+
+    // Post-order traversal
+    func postOrderTraversal(_ node: BinaryTreeNode?) {
+        guard let node = node else { return }
+        postOrderTraversal(node.left)
+        postOrderTraversal(node.right)
+        print(node.value, terminator: " ")
+    }
+}
+
+// Example usage
+let bt = BinaryTree()
+bt.insert(value: 10)
+bt.insert(value: 5)
+bt.insert(value: 15)
+bt.insert(value: 3)
+bt.insert(value: 7)
+bt.insert(value: 18)
+
+print("Pre-order traversal:")
+bt.preOrderTraversal(bt.root) // 10 5 3 7 15 18
+
+print("\nIn-order traversal:")
+bt.inOrderTraversal(bt.root) // 3 5 7 10 15 18
+
+print("\nPost-order traversal:")
+bt.postOrderTraversal(bt.root) // 3 7 5 18 15 10

@@ -1,0 +1,69 @@
+/*
+
+To implement a Binary Search Tree (BST) in Swift. This example includes the essential operations such as inserting a new node and searching for a node in the tree. The code is structured to be easy to understand and remember, especially for interview preparations or quick reference.
+
+This Swift code snippet demonstrates a simple implementation of a binary search tree with insert and search functionalities. It's a good starting point for understanding BST operations and can be expanded with additional features like deletion, traversal methods, etc., based on your interview preparation needs or specific project requirements.
+
+Feel free to copy and paste this code into your GitHub repository for future reference. It's structured to be both easy to remember and straightforward enough to explain during an interview, focusing on the fundamental operations of BSTs.
+
+*/
+
+class TreeNode {
+    var value: Int
+    var left: TreeNode?
+    var right: TreeNode?
+
+    init(value: Int) {
+        self.value = value
+    }
+}
+
+class BinarySearchTree {
+    var root: TreeNode?
+
+    // Insertion method
+    func insert(value: Int) {
+        root = insertHelper(root, value)
+    }
+    
+    private func insertHelper(_ node: TreeNode?, _ value: Int) -> TreeNode? {
+        guard let node = node else {
+            return TreeNode(value: value)
+        }
+        
+        if value < node.value {
+            node.left = insertHelper(node.left, value)
+        } else {
+            node.right = insertHelper(node.right, value)
+        }
+        
+        return node
+    }
+
+    // Search method
+    func search(_ value: Int) -> Bool {
+        return searchHelper(root, value)
+    }
+    
+    private func searchHelper(_ node: TreeNode?, _ value: Int) -> Bool {
+        guard let node = node else { return false }
+        
+        if value == node.value {
+            return true
+        } else if value < node.value {
+            return searchHelper(node.left, value)
+        } else {
+            return searchHelper(node.right, value)
+        }
+    }
+}
+
+// Example usage
+let bst = BinarySearchTree()
+bst.insert(value: 5)
+bst.insert(value: 2)
+bst.insert(value: 18)
+bst.insert(value: 3)
+
+print(bst.search(18))  // true
+print(bst.search(1))   // false

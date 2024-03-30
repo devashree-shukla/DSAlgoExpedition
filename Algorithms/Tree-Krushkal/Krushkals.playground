@@ -1,0 +1,90 @@
+class Edge: Comparable {
+    var src: Int
+    var dest: Int
+    var weight: Int
+    
+    init(src: Int, dest: Int, weight: Int) {
+        self.src = src
+        self.dest = dest
+        self.weight = weight
+    }
+    
+    static func < (lhs: Edge, rhs: Edge) -> Bool {
+        return lhs.weight < rhs.weight
+    }
+    
+    static func == (lhs: Edge, rhs: Edge) -> Bool {
+        return lhs.weight == rhs.weight
+    }
+}
+
+class Graph {
+    var vertices: Int
+    var edges: [Edge]
+    
+    init(vertices: Int) {
+        self.vertices = vertices
+        self.edges = []
+    }
+    
+    func addEdge(_ src: Int, _ dest: Int, _ weight: Int) {
+        edges.append(Edge(src: src, dest: dest, weight: weight))
+    }
+    
+    // The main function to construct MST using Kruskal's algorithm
+    func kruskalMST() {
+        edges.sort()
+        var parent = [Int](repeating: 0, count: vertices)
+        
+        // Make set: Every node is its own parent initially
+        for i in 0..<vertices {
+            parent[i] = i
+        }
+        
+        var mst = [Edge]()
+        for edge in edges {
+            let x = find(parent, edge.src)
+            let y = find(parent, edge.dest)
+            
+            // If including this edge doesn't cause a cycle,
+            // include it in the result and union the two vertices
+            if x != y {
+                mst.append(edge)
+                union(&parent, x, y)
+            }
+        }
+        
+        // Printing the MST
+        var totalWeight = 0
+        for edge in mst {
+            print("\(edge.src) -- \(edge.dest) == \(edge.weight)")
+            totalWeight += edge.weight
+        }
+        print("Total Weight of MST: \(totalWeight)")
+    }
+    
+    // Find the parent of a node (uses path compression technique)
+    func find(_ parent: [Int], _ i: Int) -> Int {
+        if parent[i] == i {
+            return i
+        }
+        return find(parent, parent[i])
+    }
+    
+    // Union of two subsets
+    func union(_ parent: inout [Int], _ x: Int, _ y: Int) {
+        let xset = find(parent, x)
+        let yset = find(parent, y)
+        parent[xset] = yset
+    }
+}
+
+// Example usage
+let graph = Graph(vertices: 4)
+graph.addEdge(0, 1, 10)
+graph.addEdge(0, 2, 6)
+graph.addEdge(0, 3, 5)
+graph.addEdge(1, 3, 15)
+graph.addEdge(2, 3, 4)
+
+graph.kruskalMST()

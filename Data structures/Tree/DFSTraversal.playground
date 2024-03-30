@@ -1,0 +1,56 @@
+/*
+
+Swift example that demonstrates the three primary depth-first traversal techniques (pre-order, in-order, and post-order) for a binary tree. This example will be easily adaptable for different tree structures and useful for interview discussions.
+
+This Swift code snippet defines a simple TreeNode class for constructing binary trees and includes functions for pre-order, in-order, and post-order traversals. These traversal methods are essential for exploring or processing the nodes of a tree in different orders, each useful for specific operations like searching, sorting, or modifying tree structures.
+
+This example is designed to be simple for quick understanding and recall, perfect for both interview scenarios and as a reference for future projects. You can easily copy this code into a Swift file in your GitHub repository for easy access and reference during your interview preparations or coding practice sessions.
+
+*/
+
+class TreeNode {
+    var value: Int
+    var left: TreeNode?
+    var right: TreeNode?
+
+    init(_ value: Int) {
+        self.value = value
+    }
+}
+
+func preOrderTraversal(_ node: TreeNode?) {
+    guard let node = node else { return }
+    print(node.value, terminator: " ") // Process the root node
+    preOrderTraversal(node.left)       // Traverse the left subtree
+    preOrderTraversal(node.right)      // Traverse the right subtree
+}
+
+func inOrderTraversal(_ node: TreeNode?) {
+    guard let node = node else { return }
+    inOrderTraversal(node.left)        // Traverse the left subtree
+    print(node.value, terminator: " ") // Process the root node
+    inOrderTraversal(node.right)       // Traverse the right subtree
+}
+
+func postOrderTraversal(_ node: TreeNode?) {
+    guard let node = node else { return }
+    postOrderTraversal(node.left)      // Traverse the left subtree
+    postOrderTraversal(node.right)     // Traverse the right subtree
+    print(node.value, terminator: " ") // Process the root node
+}
+
+// Example tree creation and traversal
+let root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+root.left?.left = TreeNode(4)
+root.left?.right = TreeNode(5)
+
+print("Pre-order traversal:")
+preOrderTraversal(root)
+
+print("\nIn-order traversal:")
+inOrderTraversal(root)
+
+print("\nPost-order traversal:")
+postOrderTraversal(root)
