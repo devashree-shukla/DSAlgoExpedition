@@ -1,0 +1,44 @@
+class TrieNode {
+    var children: [Character: TrieNode] = [:]
+    var isEndOfWord: Bool = false
+
+    func insert(word: String) {
+        var currentNode = self
+        for char in word {
+            if currentNode.children[char] == nil {
+                currentNode.children[char] = TrieNode()
+            }
+            currentNode = currentNode.children[char]!
+        }
+        currentNode.isEndOfWord = true
+    }
+
+    func search(word: String) -> Bool {
+        var currentNode = self
+        for char in word {
+            guard let nextNode = currentNode.children[char] else {
+                return false
+            }
+            currentNode = nextNode
+        }
+        return currentNode.isEndOfWord
+    }
+
+    func startsWith(prefix: String) -> Bool {
+        var currentNode = self
+        for char in prefix {
+            guard let nextNode = currentNode.children[char] else {
+                return false
+            }
+            currentNode = nextNode
+        }
+        return true
+    }
+}
+
+// Usage
+let trie = TrieNode()
+trie.insert(word: "apple")
+print(trie.search(word: "apple"))  // true
+print(trie.search(word: "app"))    // false
+print(trie.startsWith(prefix: "app")) // true
