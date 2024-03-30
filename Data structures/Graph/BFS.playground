@@ -1,0 +1,19 @@
+extension Graph {
+    func bfs(startingAt start: Int) {
+        var visited = Set<Int>()
+        var queue = [start]
+
+        while !queue.isEmpty {
+            let vertex = queue.removeFirst()
+            if visited.contains(vertex) {
+                continue
+            }
+            visited.insert(vertex)
+            print(vertex) // Process the node
+
+            for neighbor in getNeighbors(of: vertex) where !visited.contains(neighbor) {
+                queue.append(neighbor)
+            }
+        }
+    }
+}

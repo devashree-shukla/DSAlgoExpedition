@@ -1,0 +1,30 @@
+class WeightedGraph {
+    var adjacencyList: [Int: [(neighbor: Int, weight: Int)]] = [:]
+
+    func dijkstra(startingAt start: Int) -> [Int: Int] {
+        var distances = [Int: Int]()
+        var priorityQueue = [(vertex: Int, priority: Int)]()
+        var visited = Set<Int>()
+
+        distances[start] = 0
+        priorityQueue.append((start, 0))
+
+        while !priorityQueue.isEmpty {
+            let (currentVertex, _) = priorityQueue.removeFirst()
+            if visited.contains(currentVertex) {
+                continue
+            }
+            visited.insert(currentVertex)
+
+            for (neighbor, weight) in adjacencyList[currentVertex, default: []] {
+                let newDistance = (distances[currentVertex] ?? 0) + weight
+                if newDistance < (distances[neighbor] ?? Int.max) {
+                    distances[neighbor] = newDistance
+                    priorityQueue.append((neighbor, newDistance))
+                }
+            }
+        }
+
+        return distances
+    }
+}

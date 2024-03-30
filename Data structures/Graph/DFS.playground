@@ -1,0 +1,14 @@
+extension Graph {
+    func dfs(startingAt start: Int) {
+        var visited = Set<Int>()
+        dfsUtil(start, &visited)
+    }
+
+    private func dfsUtil(_ vertex: Int, _ visited: inout Set<Int>) {
+        visited.insert(vertex)
+        print(vertex) // Process the node
+        for neighbor in getNeighbors(of: vertex) where !visited.contains(neighbor) {
+            dfsUtil(neighbor, &visited)
+        }
+    }
+}

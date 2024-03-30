@@ -1,0 +1,13 @@
+class Graph {
+    var adjacencyList: [Int: [Int]] = [:]
+
+    func addEdge(_ v: Int, _ w: Int) {
+        adjacencyList[v, default: []].append(w)
+        // For undirected graph, add the opposite edge too
+        // adjacencyList[w, default: []].append(v)
+    }
+
+    func getNeighbors(of vertex: Int) -> [Int] {
+        return adjacencyList[vertex, default: []]
+    }
+}
