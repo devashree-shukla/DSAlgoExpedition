@@ -1,0 +1,51 @@
+/*
+
+Key Points to Remember:
+
+- Generics: The Stack struct is implemented as a generic type to allow it to store any type of elements, making it more versatile.
+- Private Storage: The stack's elements are stored in a private array to encapsulate the storage mechanism and only expose the stack's operations.
+- @discardableResult: This attribute before the pop function indicates that callers are free to ignore the result of pop if they choose, which can be useful in some contexts where the returned value is not needed.
+
+*/
+
+struct Stack<Element> {
+    private var storage: [Element] = []
+    
+    init() { }
+
+    // Push: Adds an element to the top of the stack
+    mutating func push(_ element: Element) {
+        storage.append(element)
+    }
+
+    // Pop: Removes and returns the top element of the stack
+    @discardableResult
+    mutating func pop() -> Element? {
+        return storage.popLast()
+    }
+
+    // Peek: Returns the top element of the stack without removing it
+    func peek() -> Element? {
+        return storage.last
+    }
+
+    // isEmpty: Checks if the stack is empty
+    var isEmpty: Bool {
+        return storage.isEmpty
+    }
+
+    // Size: Returns the number of elements in the stack
+    var size: Int {
+        return storage.count
+    }
+}
+
+// Example Usage
+var stack = Stack<Int>()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+print(stack.peek() ?? "Empty Stack") // Output: 3
+print(stack.pop() ?? "Empty Stack")  // Output: 3
+print(stack.size)                    // Output: 2
+print(stack.isEmpty)                 // Output: false

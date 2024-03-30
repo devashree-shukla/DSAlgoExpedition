@@ -1,0 +1,85 @@
+/*
+
+This will include defining a Node class to hold each element and a Queue class to manage the nodes in a FIFO (First In, First Out) manner.
+
+Node Class
+
+Each element in the queue will be wrapped in a Node class, which stores the element's value and a reference to the next node in the list.
+
+Queue Class
+
+The Queue class will manage the nodes. It needs to keep references to the first and last node to efficiently enqueue and dequeue elements.
+
+Example Usage
+
+Here's how you can use the Queue class:
+
+Explanation: 
+
+- The Node class is a generic class designed to store a value of any type and a reference to the next node.
+- The Queue class is also generic and uses the Node class to store its elements. It keeps track of the queue's head and tail to ensure that enqueueing and dequeueing operations can be performed efficiently.
+- The enqueue method adds a new element to the end of the queue. If the queue is empty, it sets both the head and tail to the new node. Otherwise, it updates the next reference of the current tail node to point to the new node and then updates the tail to be the new node.
+- The dequeue method removes the element at the front of the queue. It returns the value of the head node and then updates the head to be the next node. If the queue becomes empty as a result, it also sets the tail to nil.
+- The peek method returns the value of the front item without removing it from the queue, allowing you to see the value at the front of the queue without altering its content.
+
+This implementation ensures efficient queue operations, leveraging the linked list structure's dynamic size and easy element addition/removal.
+
+*/
+
+class Node<T> {
+    var value: T
+    var next: Node?
+    
+    init(value: T) {
+        self.value = value
+        self.next = nil
+    }
+}
+
+class Queue<T> {
+    private var head: Node<T>?
+    private var tail: Node<T>?
+    
+    public var isEmpty: Bool {
+        return head == nil
+    }
+    
+    // Enqueue: Add an item to the end of the queue
+    func enqueue(_ value: T) {
+        let newNode = Node(value: value)
+        if let tailNode = tail {
+            tailNode.next = newNode
+        } else {
+            head = newNode
+        }
+        tail = newNode
+    }
+    
+    // Dequeue: Remove and return the item at the front of the queue
+    func dequeue() -> T? {
+        if let headNode = head {
+            let value = headNode.value
+            head = headNode.next
+            if head == nil {
+                tail = nil
+            }
+            return value
+        } else {
+            return nil
+        }
+    }
+    
+    // Peek: Get the value of the front item without removing it
+    func peek() -> T? {
+        return head?.value
+    }
+}
+
+var queue = Queue<String>()
+
+queue.enqueue("First")
+queue.enqueue("Second")
+queue.enqueue("Third")
+
+print(queue.dequeue() ?? "Queue is empty") // Output: First
+print(queue.peek() ?? "Queue is empty")    // Output: Second

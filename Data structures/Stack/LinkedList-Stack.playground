@@ -1,0 +1,79 @@
+/*
+
+For a linked list-based implementation of a stack in Swift, we need to define two main components: a Node class to represent each element in the stack, and the Stack class itself, which will manage the nodes in a Last In, First Out (LIFO) manner. Below is a straightforward and easy-to-understand implementation.
+
+Linked List Based Stack Implementation in Swift
+First, define the Node class, which will hold the stack's elements:
+
+Now, let's implement the stack using the Node class. This implementation includes the core operations of a stack: push, pop, peek, isEmpty, and a computed property for size.
+
+Key Points:
+
+- Node Management: The push operation creates a new node and makes it the new head of the stack. The pop operation removes the head node and returns its value.
+- Generics: Like the array-based implementation, this linked list-based stack is also generic, allowing it to hold elements of any type.
+- Head Pointer: The stack maintains a head pointer to the top element of the stack (the last element pushed onto it). This allows for O(1) time complexity for the push, pop, and peek operations.
+- Stack Size Tracking: The stack size is explicitly tracked with a stackSize variable to provide constant-time access to the stack's size.
+
+This implementation leverages the benefits of a linked list, such as dynamic resizing and efficient use of memory. Feel free to use and modify this code for your interview preparation or any other projects.
+
+*/
+
+class Node<Element> {
+    var value: Element
+    var next: Node?
+
+    init(value: Element) {
+        self.value = value
+    }
+}
+
+class Stack<Element> {
+    private var head: Node<Element>?
+    private var stackSize: Int = 0
+
+    // isEmpty: Checks if the stack is empty
+    var isEmpty: Bool {
+        return head == nil
+    }
+
+    // Size: Returns the number of elements in the stack
+    var size: Int {
+        return stackSize
+    }
+
+    // Push: Adds an element to the top of the stack
+    func push(_ value: Element) {
+        let newNode = Node(value: value)
+        if let headNode = head {
+            newNode.next = headNode
+        }
+        head = newNode
+        stackSize += 1
+    }
+
+    // Pop: Removes and returns the top element of the stack
+    @discardableResult
+    func pop() -> Element? {
+        if let headNode = head {
+            head = headNode.next
+            stackSize -= 1
+            return headNode.value
+        }
+        return nil
+    }
+
+    // Peek: Returns the top element of the stack without removing it
+    func peek() -> Element? {
+        return head?.value
+    }
+}
+
+// Example Usage
+let stack = Stack<Int>()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+print(stack.peek() ?? "Empty Stack") // Output: 3
+print(stack.pop() ?? "Empty Stack")  // Output: 3
+print(stack.size)                    // Output: 2
+print(stack.isEmpty)                 // Output: false

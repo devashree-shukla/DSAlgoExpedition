@@ -1,0 +1,42 @@
+/*
+
+This example covers the enqueue, dequeue, and isEmpty operations, along with the properties for front and rear elements.
+
+This Swift code defines a generic queue that can store any type of element. The enqueue method adds an element to the end of the queue, while the dequeue method removes and returns the first element of the queue. The isEmpty, front, and rear methods provide additional utility to check the queue's status and access its first and last elements.
+
+*/
+
+
+struct Queue<T> {
+    private var elements: [T] = []
+    
+    mutating func enqueue(_ element: T) {
+        elements.append(element)
+    }
+    
+    mutating func dequeue() -> T? {
+        guard !elements.isEmpty else { return nil }
+        return elements.removeFirst()
+    }
+    
+    func isEmpty() -> Bool {
+        return elements.isEmpty
+    }
+    
+    func front() -> T? {
+        return elements.first
+    }
+    
+    func rear() -> T? {
+        return elements.last
+    }
+}
+
+// Example usage:
+var queue = Queue<Int>()
+queue.enqueue(1)
+queue.enqueue(2)
+queue.enqueue(3)
+print(queue.dequeue() ?? "Queue is empty") // Output: 1
+print(queue.front() ?? "Queue is empty")   // Output: 2
+print(queue.rear() ?? "Queue is empty")    // Output: 3

@@ -1,0 +1,87 @@
+/*
+
+Implementing a queue using two stacks is a classic problem that demonstrates the versatility of stack operations to replicate queue behavior. The key insight is that a stack reverses order, so two stacks used together can restore the original order of elements, allowing us to implement a FIFO (First In, First Out) queue using LIFO (Last In, First Out) stacks.
+
+Strategy:
+
+Enqueue Operation: Push the new elements onto stack 1.
+
+Dequeue Operation: If stack 2 is empty, pop all elements from stack 1 and push them onto stack 2, which reverses their order. Then, pop the top element from stack 2. If stack 2 is not empty, directly pop the top element from stack 2.
+
+This approach ensures that the oldest elements are always at the top of stack 2, ready to be dequeued, while stack 1 holds the newer elements.
+
+Swift Implementation:
+
+Here's how you can implement this strategy in Swift:
+
+Explanation: 
+
+We define a generic Stack struct with basic operations: push, pop, peek, and a property to check if it's empty.
+The Queue class utilizes two instances of this Stack struct. It uses stack1 to handle incoming (enqueue) operations and stack2 for outgoing (dequeue) operations.
+During the enqueue operation, elements are pushed onto stack1.
+The dequeue operation is where the magic happens. If stack2 is empty, we pop all elements from stack1 and push them onto stack2. This reverses the order of the elements, placing the oldest element (the next to be dequeued) at the top of stack2. Then, we can simply pop from stack2.
+The transferStacks method is a helper function used during the dequeue operation to transfer elements from stack1 to stack2, ensuring that elements are dequeued in the correct order.
+This implementation leverages the intrinsic properties of stacks to efficiently perform queue operations with a FIFO behavior using two LIFO structures.
+
+
+*/
+
+struct Stack<Element> {
+    private var storage: [Element] = []
+    
+    mutating func push(_ element: Element) {
+        storage.append(element)
+    }
+    
+    mutating func pop() -> Element? {
+        return storage.popLast()
+    }
+    
+    func peek() -> Element? {
+        return storage.last
+    }
+    
+    var isEmpty: Bool {
+        return storage.isEmpty
+    }
+}
+
+class Queue<T> {
+    private var stack1: Stack<T> = Stack<T>()
+    private var stack2: Stack<T> = Stack<T>()
+    
+    var isEmpty: Bool {
+        return stack1.isEmpty && stack2.isEmpty
+    }
+    
+    // Enqueue by pushing to stack1
+    func enqueue(_ element: T) {
+        stack1.push(element)
+    }
+    
+    // Dequeue by firstly transferring all elements from stack1 to stack2 if stack2 is empty,
+    // then popping from stack2
+    func dequeue() -> T? {
+        if stack2.isEmpty {
+            transferStacks()
+        }
+        return stack2.pop()
+    }
+    
+    // Helper function to transfer elements from stack1 to stack2, reversing their order
+    private func transferStacks() {
+        while let element = stack1.pop() {
+            stack2.push(element)
+        }
+    }
+}
+
+// Example Usage
+var queue = Queue<String>()
+queue.enqueue("First")
+queue.enqueue("Second")
+queue.enqueue("Third")
+
+print(queue.dequeue() ?? "Queue is empty") // Output: First
+print(queue.dequeue() ?? "Queue is empty") // Output: Second
+print(queue.dequeue() ?? "Queue is empty") // Output: Third
