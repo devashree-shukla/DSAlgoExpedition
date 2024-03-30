@@ -1,0 +1,46 @@
+/*
+
+Binary search is an efficient algorithm for finding an item from a sorted list of items. It works by repeatedly dividing in half the portion of the list that could contain the item, until you've narrowed the possible locations to just one.
+
+Below is a Swift code example implementing the binary search algorithm. This implementation uses recursion to divide the search space in half at each step. It searches for a specific value within a sorted array and returns the index of the value if found; otherwise, it returns -1 to indicate the value is not present.
+
+This code defines a generic binarySearch function that can operate on any array of comparable items, allowing for flexibility in what it can search. The function is called with a sorted array of integers and a value to search for. If the value is found within the array, the index of the value is printed; if not, it indicates that the value was not found.
+
+Binary search is significantly more efficient than linear search for sorted arrays, especially as the size of the array grows, because it reduces the search space by half with each step. However, it requires the array to be sorted before it can be used.
+
+*/
+
+func binarySearch<T: Comparable>(_ arr: [T], key: T, range: Range<Int>) -> Int {
+    if range.lowerBound >= range.upperBound {
+        // If we get to a point where the lower bound is greater than the upper bound,
+        // the key doesn't exist in the array.
+        return -1
+    } else {
+        // Calculate midpoint to cut set in half
+        let midIndex = range.lowerBound + (range.upperBound - range.lowerBound) / 2
+        
+        // If the key is in the lower half
+        if arr[midIndex] > key {
+            return binarySearch(arr, key: key, range: range.lowerBound..<midIndex)
+        
+        // If the key is in the upper half
+        } else if arr[midIndex] < key {
+            return binarySearch(arr, key: key, range: midIndex + 1..<range.upperBound)
+        
+        // If we found the key
+        } else {
+            return midIndex
+        }
+    }
+}
+
+// Example usage
+let numbers = [1, 5, 15, 17, 19, 22, 24, 31, 105, 150]
+let searchValue = 24
+let result = binarySearch(numbers, key: searchValue, range: 0..<numbers.count)
+
+if result != -1 {
+    print("Value found at index: \(result)")
+} else {
+    print("Value not found")
+}

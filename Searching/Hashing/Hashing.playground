@@ -1,0 +1,33 @@
+/*
+
+Hashing is a technique used to efficiently find or store data in a database. In Swift, you can use dictionaries as a way to implement a basic form of hashing, where the key-value pairs allow for efficient data retrieval. The key acts like a "hash," leading directly to the stored value. This can be considered a form of hashing search algorithm where the complexity of search operations is generally O(1) under ideal conditions.
+
+Below is a simple example in Swift that demonstrates how you can use a dictionary (which employs hashing under the hood) to store and search for values efficiently. In this example, we'll create a dictionary to map student IDs (as keys) to their names (as values) and then show how to retrieve a name using a student ID.
+
+This example sets up a studentDatabase dictionary where each student's ID is associated with their name. The searchStudent function takes a student ID, looks it up in the dictionary, and returns the corresponding name if found. This is a direct application of hashing, where the student ID serves as a direct map to the student's name, allowing for efficient retrieval.
+
+Dictionaries in Swift are designed to be highly efficient for lookup operations, making them an excellent choice for implementing hash-based search algorithms. The efficiency, of course, depends on how Swift implements hash tables internally, including how it handles hash collisions. In practice, Swift's dictionaries are highly optimized for performance.
+
+*/
+
+// Define a dictionary to represent the student database.
+// Keys are student IDs (Int), and values are student names (String).
+var studentDatabase: [Int: String] = [
+    1001: "Alice",
+    1002: "Bob",
+    1003: "Charlie",
+    1004: "Diana"
+]
+
+// Function to search for a student name using their ID.
+func searchStudent(byID id: Int) -> String? {
+    return studentDatabase[id]
+}
+
+// Example usage:
+let studentID = 1003
+if let studentName = searchStudent(byID: studentID) {
+    print("Student Name: \(studentName)")
+} else {
+    print("Student with ID \(studentID) not found.")
+}

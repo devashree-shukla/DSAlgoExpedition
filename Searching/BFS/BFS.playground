@@ -1,0 +1,64 @@
+/*
+
+Breadth-First Search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph) and explores the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level. Here’s how you can implement BFS in Swift, using a graph represented as an adjacency list.
+
+Graph Representation
+
+First, define a simple Graph structure in Swift. This structure uses a dictionary to represent an adjacency list, where each node key maps to a list of its neighbors.
+
+Breadth-First Search (BFS) Implementation
+In the Graph struct, the bfs(from:to:) method implements the Breadth-First Search algorithm to check if there's a path from a source node to a destination node. It uses a queue to keep track of the nodes to visit next and a set to keep track of visited nodes.
+
+Example Usage
+Here's how you can use the above Graph structure and the BFS method to search for a path between two nodes:
+
+This setup creates a simple graph (bidirectional for this example) and then searches for a path from node 1 to node 5 using Breadth-First Search. The BFS function returns true if such a path exists, indicating the search was successful. BFS is particularly useful for finding the shortest path on unweighted graphs.
+
+*/
+
+struct Graph<T: Hashable> {
+    var adjacencyList: [T: [T]] = [:]
+
+    mutating func addEdge(from source: T, to destination: T, bidirectional: Bool = false) {
+        adjacencyList[source, default: []].append(destination)
+        if bidirectional {
+            adjacencyList[destination, default: []].append(source)
+        }
+    }
+
+    func bfs(from source: T, to destination: T) -> Bool {
+        var visited = Set<T>()
+        var queue = [source]
+
+        while !queue.isEmpty {
+            let current = queue.removeFirst()
+            if current == destination {
+                return true
+            }
+            if !visited.contains(current) {
+                visited.insert(current)
+                if let neighbors = adjacencyList[current] {
+                    for neighbor in neighbors where !visited.contains(neighbor) {
+                        queue.append(neighbor)
+                    }
+                }
+            }
+        }
+        return false
+    }
+}
+
+var graph = Graph<Int>()
+graph.addEdge(from: 1, to: 2, bidirectional: true)
+graph.addEdge(from: 1, to: 3, bidirectional: true)
+graph.addEdge(from: 2, to: 4, bidirectional: true)
+graph.addEdge(from: 3, to: 4, bidirectional: true)
+graph.addEdge(from: 4, to: 5, bidirectional: true)
+
+let source = 1
+let destination = 5
+if graph.bfs(from: source, to: destination) {
+    print("Path exists from \(source) to \(destination)")
+} else {
+    print("No path exists from \(source) to \(destination)")
+}

@@ -1,0 +1,29 @@
+/*
+
+The linear search algorithm is straightforward and efficient for small datasets or when the list is unsorted. Below is an example of how you could implement a linear search in Swift. This example includes a function linearSearch that takes an array of integers and a value to search for. If the value is found, the function returns the index of the value within the array. If the value is not found, it returns -1 to indicate that the value is not present in the array.
+
+This example defines an array numbers containing integers and uses the linearSearch function to search for the value 30 within the array. If the value is found, it prints the index of where the value was found; otherwise, it indicates that the value was not found.
+
+Linear search is simple and doesn't require the data to be sorted, making it useful for small or unsorted datasets. However, for larger datasets or when performance is critical, other searching algorithms like binary search (for sorted arrays) may be more efficient.
+
+*/
+
+func linearSearch(for value: Int, in array: [Int]) -> Int {
+    for (index, element) in array.enumerated() {
+        if element == value {
+            return index // Value found, return index
+        }
+    }
+    return -1 // Value not found
+}
+
+// Example usage:
+let numbers = [10, 20, 30, 40, 50]
+let searchValue = 30
+let result = linearSearch(for: searchValue, in: numbers)
+
+if result != -1 {
+    print("Value found at index: \(result)")
+} else {
+    print("Value not found")
+}

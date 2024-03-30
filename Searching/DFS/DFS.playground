@@ -1,0 +1,60 @@
+/*
+
+Depth-First Search (DFS) is a fundamental algorithm used to traverse or search through the nodes of a graph or tree. It explores as far down a branch as possible before backtracking to explore other branches. Here’s how you can implement DFS in Swift, using a graph represented as an adjacency list. This example also demonstrates searching for a specific value within the graph.
+
+Graph Representation :
+
+First, let's define a simple Graph structure in Swift. This structure uses a dictionary to represent an adjacency list, where each node key maps to a list of its neighbors.
+
+Depth-First Search (DFS) Implementation
+In the Graph struct, the dfs(from:to:) method implements the Depth-First Search algorithm to check if there's a path from a source node to a destination node. It uses a stack to keep track of the nodes to visit next and a set to keep track of visited nodes.
+
+Example Usage
+Here's how you can use the above Graph structure and the DFS method to search for a path between two nodes:
+
+This setup creates a simple directed graph and then searches for a path from node 1 to node 5 using Depth-First Search. The DFS function returns true if such a path exists, indicating the search was successful.
+
+*/
+
+struct Graph<T: Hashable> {
+    var adjacencyList: [T: [T]] = [:]
+
+    mutating func addEdge(from source: T, to destination: T) {
+        adjacencyList[source, default: []].append(destination)
+        // Uncomment the next line if you want the graph to be undirected
+        // adjacencyList[destination, default: []].append(source)
+    }
+    
+    func dfs(from source: T, to destination: T) -> Bool {
+        var visited = Set<T>()
+        var stack = [source]
+
+        while !stack.isEmpty {
+            let current = stack.removeLast()
+            if current == destination {
+                return true
+            }
+            if !visited.contains(current) {
+                visited.insert(current)
+                stack.append(contentsOf: adjacencyList[current, default: []])
+            }
+        }
+        return false
+    }
+}
+
+
+var graph = Graph<Int>()
+graph.addEdge(from: 1, to: 2)
+graph.addEdge(from: 1, to: 3)
+graph.addEdge(from: 2, to: 4)
+graph.addEdge(from: 3, to: 4)
+graph.addEdge(from: 4, to: 5)
+
+let source = 1
+let destination = 5
+if graph.dfs(from: source, to: destination) {
+    print("Path exists from \(source) to \(destination)")
+} else {
+    print("No path exists from \(source) to \(destination)")
+}
