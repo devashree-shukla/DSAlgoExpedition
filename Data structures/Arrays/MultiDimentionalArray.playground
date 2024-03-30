@@ -1,0 +1,86 @@
+// Declaring a Two-Dimensional Array in Swift
+
+var matrix: [[Int]] = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+]
+
+Matrix Operations : 
+
+Addition : 
+
+Here's how you might add two matrices together, assuming they are of the same dimension:
+
+func addMatrices(_ matrixA: [[Int]], _ matrixB: [[Int]]) -> [[Int]]? {
+    guard matrixA.count == matrixB.count && matrixA[0].count == matrixB[0].count else {
+        return nil
+    }
+    
+    var result = matrixA
+    for i in 0..<matrixA.count {
+        for j in 0..<matrixA[i].count {
+            result[i][j] = matrixA[i][j] + matrixB[i][j]
+        }
+    }
+    return result
+}
+
+let matrixA = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+let matrixB = [[9, 8, 7], [6, 5, 4], [3, 2, 1]]
+if let result = addMatrices(matrixA, matrixB) {
+    print(result)  // Output: [[10, 10, 10], [10, 10, 10], [10, 10, 10]]
+}
+
+Transpose : 
+
+Transposing a matrix in Swift involves swapping rows and columns:
+
+func transposeMatrix(_ matrix: [[Int]]) -> [[Int]] {
+    guard !matrix.isEmpty else { return [] }
+    
+    var transposed = Array(repeating: Array(repeating: 0, count: matrix.count), count: matrix[0].count)
+    for i in 0..<matrix.count {
+        for j in 0..<matrix[i].count {
+            transposed[j][i] = matrix[i][j]
+        }
+    }
+    return transposed
+}
+
+let originalMatrix = [[1, 2, 3], [4, 5, 6]]
+let transposedMatrix = transposeMatrix(originalMatrix)
+print(transposedMatrix)  // Output: [[1, 4], [2, 5], [3, 6]]
+
+Matrix Traversal : 
+
+Row-wise and Column-wise Traversal
+Swift makes it easy to traverse matrices in both row-wise and column-wise manners due to its powerful for-in loops:
+
+// Row-wise Traversal
+for row in matrix {
+    for value in row {
+        print(value, terminator: " ")
+    }
+    print("")
+}
+
+// Column-wise Traversal
+if let rowCount = matrix.first?.count {
+    for i in 0..<rowCount {
+        for row in matrix {
+            print(row[i], terminator: " ")
+        }
+        print("")
+    }
+}
+
+// Diagonal Traversal
+func printPrimaryDiagonal(of matrix: [[Int]]) {
+    let rowCount = matrix.count
+    for i in 0..<rowCount {
+        print(matrix[i][i], terminator: " ")
+    }
+}
+
+printPrimaryDiagonal(of: matrix)  // Output: 1 5 9

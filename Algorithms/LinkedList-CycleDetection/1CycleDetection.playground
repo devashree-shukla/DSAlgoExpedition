@@ -1,0 +1,23 @@
+class ListNode {
+    var value: Int
+    var next: ListNode?
+    init(_ value: Int) {
+        self.value = value
+        self.next = nil
+    }
+}
+
+func hasCycle(head: ListNode?) -> Bool {
+    var slow = head
+    var fast = head
+
+    while fast != nil && fast?.next != nil {
+        slow = slow?.next
+        fast = fast?.next?.next
+        if slow === fast {
+            return true
+        }
+    }
+
+    return false
+}

@@ -1,0 +1,31 @@
+func detectCycle(head: ListNode?) -> ListNode? {
+    if head == nil {
+        return nil
+    }
+
+    var slow = head
+    var fast = head
+
+    // First, detect the cycle using the Floyd's Tortoise and Hare approach
+    var isCycle = false
+    while fast != nil && fast?.next != nil {
+        slow = slow?.next
+        fast = fast?.next?.next
+        if slow === fast {
+            isCycle = true
+            break
+        }
+    }
+
+    // If a cycle is detected, find the entry point
+    if isCycle {
+        slow = head
+        while slow !== fast {
+            slow = slow?.next
+            fast = fast?.next
+        }
+        return slow // This is the entry point to the cycle
+    }
+
+    return nil // No cycle detected
+}
