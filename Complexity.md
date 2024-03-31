@@ -42,3 +42,5 @@ During interviews, your understanding of algorithmic complexity is assessed in s
 - Review and Learn: After solving problems, review others' solutions and explanations to learn different approaches and understand their complexities.
 
 Algorithmic complexity is a fundamental concept that underpins efficient problem-solving in computer science. For interviews, being adept at evaluating and optimizing the complexity of algorithms can set you apart as a candidate. Remember, it's not just about solving the problem but doing so in the most efficient way possible.
+
+CheatSheet - https://www.bigocheatsheet.com/
