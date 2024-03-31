@@ -25,10 +25,13 @@ O(1) Heap sort is an in-place algorithm.
 ## Advantages:
 
 Efficient for large data sets.
+
 Better than simpler algorithms like bubble sort or insertion sort.
 
 ## Disadvantages:
 
 Relatively complex implementation.
+
 Not as efficient as quick sort or merge sort for smaller tasks.
+
 Use Cases: It's particularly good in applications where you want to sort large data sets or need to extract the largest (or smallest) elements repeatedly, like in Heap Priority Queue.
