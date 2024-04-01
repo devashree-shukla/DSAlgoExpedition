@@ -14,12 +14,20 @@ As the Quicksort algorithm uses a divide-and-conquer strategy, the 'combine' ste
 
 ## Properties
 
-Time Complexity: The average and best-case time complexity of Quicksort is O(n log n), where n is the number of elements in the array. The worst-case time complexity is O(n^2), which occurs when the smallest or largest element is always chosen as the pivot. However, this is rare, especially with good pivot selection strategies.
-Space Complexity: The space complexity of Quicksort is O(log n) due to the stack space used for recursion. However, this can degrade to O(n) in the worst case.
-Not Stable: It does not maintain the relative order of equal elements.
-In-place: It sorts the array without using extra space, except for the stack space used for recursion.
+### Time Complexity: 
 
-## Interview Tips
+The average and best-case time complexity of Quicksort is O(n log n), where n is the number of elements in the array. 
+
+The worst-case time complexity is O(n^2), which occurs when the smallest or largest element is always chosen as the pivot. However, this is rare, especially with good pivot selection strategies.
+
+### Space Complexity:
+
+The space complexity of Quicksort is O(log n) due to the stack space used for recursion. However, this can degrade to O(n) in the worst case.
+
+**Not Stable:** It does not maintain the relative order of equal elements.
+**In-place:** It sorts the array without using extra space, except for the stack space used for recursion.
+
+## Interview Tips:
 
 - Understand the algorithm deeply, including its best, average, and worst-case scenarios.
 - Practice coding Quicksort from scratch, focusing on choosing a good pivot and handling edge cases.
