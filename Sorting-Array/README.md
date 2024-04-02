@@ -6,6 +6,9 @@ My adventure and exploration in learning and practicing data structures and algo
 | **Searching Algorithms** | | | | | | | |
 | Linear Search | O(1) | O(n) | O(n) | O(1) | Iterative | No | Brute Force |
 | Binary Search | O(1) | O(log n) | O(log n) | O(1) | Iterative or Recursive | Yes | Divide and Conquer |
+| Hashing | O(1) | O(1) | O(1) |  | Hashtable | No | Hash function & Key based |
+| DFS | O(V + E) / O(n) | O(V + E) / O(n) | O(V + E) / O(n) |  | Traversal | Yes |  |
+| BFS | O(V + E) / O(n) | O(V + E) / O(n) | O(V + E) / O(n) |  | Traversal | Yes | |
 | **Sorting Algorithms** | | | | | | | |
 | Bubble Sort | O(n) | O(n^2) | O(n^2) | O(1) | Iterative | Yes | Brute Force |
 | Insertion Sort | O(n) | O(n^2) | O(n^2) | O(1) | Iterative | Yes | Incremental Insertion |
