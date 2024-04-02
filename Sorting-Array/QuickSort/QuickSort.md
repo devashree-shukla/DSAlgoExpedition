@@ -36,3 +36,5 @@ The space complexity of Quicksort is O(log n) due to the stack space used for re
 
 Quicksort is widely used because of its efficiency and simplicity, especially for large datasets. Being familiar with its implementation and characteristics can be a great asset during technical interviews.
 
+![WhatsApp Image 2024-04-02 at 2 02 00 PM](https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/cb5b38ed-b369-4f7b-8f9e-068906e4b82f)
+
