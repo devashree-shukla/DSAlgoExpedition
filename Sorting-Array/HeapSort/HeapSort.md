@@ -35,3 +35,6 @@ Relatively complex implementation.
 Not as efficient as quick sort or merge sort for smaller tasks.
 
 Use Cases: It's particularly good in applications where you want to sort large data sets or need to extract the largest (or smallest) elements repeatedly, like in Heap Priority Queue.
+
+![WhatsApp Image 2024-04-02 at 2 02 00 PM (1)](https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/54caee25-58d7-4955-bee6-d4e8de519ca1)
+
