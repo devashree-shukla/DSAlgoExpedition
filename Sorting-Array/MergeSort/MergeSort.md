@@ -29,6 +29,9 @@ Continue splitting until arrays are of size 1 or 0.
 Merge subarrays in sorted order. For example, [38] and [27] merge into [27, 38].
 Continue merging back up the tree.
 
+![WhatsApp Image 2024-04-02 at 2 01 59 PM](https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/7de5b904-6e60-4a34-ab51-c41d530fb212)
+
+
 ### Pseudocode:
 
 pseudocode
