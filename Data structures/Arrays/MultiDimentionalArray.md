@@ -6,7 +6,14 @@ A multi-dimensional array is an array of arrays. The two-dimensional array, or m
 
 ## Declaration Examples:
 
+In Swift: 
+var numericalGrid: [[Int]] = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+
 In Python: matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
 In Java: int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 
 ## Basic Matrix Operations
