@@ -31,16 +31,6 @@ class Stack<Element> {
     private var head: Node<Element>?
     private var stackSize: Int = 0
 
-    // isEmpty: Checks if the stack is empty
-    var isEmpty: Bool {
-        return head == nil
-    }
-
-    // Size: Returns the number of elements in the stack
-    var size: Int {
-        return stackSize
-    }
-
     // Push: Adds an element to the top of the stack
     func push(_ value: Element) {
         let newNode = Node(value: value)
@@ -66,6 +56,17 @@ class Stack<Element> {
     func peek() -> Element? {
         return head?.value
     }
+
+    // isEmpty: Checks if the stack is empty
+    var isEmpty: Bool {
+        return head == nil
+    }
+
+    // Size: Returns the number of elements in the stack
+    var size: Int {
+        return stackSize
+    }
+
 }
 
 // Example Usage
