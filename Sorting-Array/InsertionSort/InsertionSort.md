@@ -30,6 +30,9 @@ Start with the second element (1).
 It's smaller than 3, so we move 3 to the right and insert 1 before it.
 Continue this process, comparing each new element to those in the sorted section and inserting it in the correct position.
 
+![WhatsApp Image 2024-04-02 at 2 01 59 PM (2)](https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/6ef88cfb-aaa7-41ea-b42e-2d6c79f2f5f2)
+
+
 ## Complexity
 
 ### Time Complexity:
