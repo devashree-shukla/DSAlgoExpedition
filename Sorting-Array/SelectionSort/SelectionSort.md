@@ -45,3 +45,7 @@ Understanding these key points will help you explain selection sort confidently 
 - If the minimum element is not the element being considered in the outer loop, a swap is performed.
 - Finally, the sorted array is printed out.
 - This code is concise and should be easy to remember. It demonstrates the fundamental concept of the Selection Sort algorithm in Swift, making it ideal for interview discussions and educational purposes. Feel free to use and modify this code as needed for your GitHub repository.
+
+![WhatsApp Image 2024-04-02 at 2 01 59 PM (1)](https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/bfdb47af-7847-4507-bbdf-d7dd80ed6020)
+
+
