@@ -54,6 +54,9 @@ Fourth Pass: [2, 3, 4, 5, 8] (Array is sorted, but the algorithm does not know i
 
 The algorithm needs one last pass without any swap to know it is sorted.
 
+![WhatsApp Image 2024-04-02 at 2 26 44 PM](https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/00851c19-4c40-4f4a-b8c4-3aea0bd864fb)
+
+
 Use Cases: Bubble Sort is used when complexity is not an issue, and ease of implementation is a priority. It's useful for educational purposes and small datasets.
 
 Understanding this concept and being able to explain it clearly is great for an interview. Remember to also discuss where it's practical to use Bubble Sort and where it's not due to its inefficiency with large datasets.
