@@ -15,6 +15,8 @@
 - Sorting Buckets: Each bucket is sorted individually, either using a different sorting algorithm or by recursively applying bucket sort.
 - Concatenation: Merge the buckets into a single array.
 
+  <img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/f4ec90cb-0c57-4692-be78-0aff815c4954" width="350">
+
 ## Complexity
 
 ### Time Complexity:
