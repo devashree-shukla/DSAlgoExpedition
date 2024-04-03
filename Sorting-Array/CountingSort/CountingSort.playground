@@ -1,0 +1,23 @@
+func countingSort(array: [Int]) -> [Int] {
+    guard array.count > 0 else { return [] }
+    let maxElement = array.max() ?? 0
+    var countArray = [Int](repeating: 0, count: Int(maxElement + 1))
+    for element in array {
+        countArray[element] += 1
+    }
+
+    for index in 1..<countArray.count {
+        countArray[index] += countArray[index - 1]
+    }
+
+    var sortedArray = [Int](repeating: 0, count: array.count)
+    for element in array.reversed() {
+        countArray[element] -= 1
+        sortedArray[countArray[element]] = element
+    }
+
+    return sortedArray
+}
+
+print(countingSort(array: [2, 1, 2, 3, 1, 2, 4]))
+//Output: [1, 1, 2, 2, 2, 3, 4]

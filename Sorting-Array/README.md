@@ -16,7 +16,8 @@ My adventure and exploration in learning and practicing data structures and algo
 | Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) | Recursive | Yes | Divide and Conquer |
 | Quick Sort | O(n log n) | O(n log n) | O(n^2) | O(log n) | Recursive | Yes | Divide and Conquer |
 | Heap Sort | O(n log n) | O(n log n) | O(n log n) | O(1) | LSD/MSD | Yes | Selection |
-| Radix Sort | O(nk) | O(nk) | O(nk) | O(n + k) | Iterative | No | integer keys by grouping the keys by individual digits that share the same significant position and value (place value) |
+| Radix Sort | O(nk) | O(nk) | O(nk) | O(n + k) | Int/String based | No | integer keys by grouping the keys by individual digits that share the same significant position and value (place value) |
+| Couting Sort | O(nk) | O(nk) | O(nk) | O(n + k) | Interger, Range based | No | integer sorting algorithm that operates by counting the number of objects that have each distinct key value |
 
 - Linear Search: Simplest search technique; checks each element in sequence.
 - Binary Search: Efficient for sorted arrays; repeatedly divides the search interval in half.

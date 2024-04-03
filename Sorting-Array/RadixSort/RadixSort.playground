@@ -1,4 +1,4 @@
-func radixSort(array: inout [Int]) {
+func radixSort(array: inout [Int]) -> [Int] {
     let base = 10  // Decimal system
     var done = false
     var digits = 1
@@ -15,4 +15,10 @@ func radixSort(array: inout [Int]) {
         digits *= base
         array = buckets.flatMap { $0 }
     }
+    return array
 }
+
+var numbers = [904, 46, 5, 74, 62, 1, 88, 29]
+print(radixSort(array: &numbers))
+
+//Output: [1, 5, 29, 46, 62, 74, 88, 904]
