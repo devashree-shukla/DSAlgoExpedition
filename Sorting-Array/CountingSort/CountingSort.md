@@ -18,7 +18,7 @@ Mainly depends on two things :
 - Accumulate the counts to determine the positions of each value.
 - Place each item in its correct position in the output array.
 
-
+<img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/0f26095b-712a-4823-942a-9c279e3f1c2a" width="350">
 
 ## Complexity
 
