@@ -1,0 +1,18 @@
+func radixSort(array: inout [Int]) {
+    let base = 10  // Decimal system
+    var done = false
+    var digits = 1
+    while !done {
+        done = true  // Assume this pass is the last
+        // Create buckets for each base (0-9)
+        var buckets: [[Int]] = .init(repeating: [], count: base)
+        for number in array {
+            let remainingPart = number / digits
+            let digit = remainingPart % base
+            buckets[digit].append(number)
+            if remainingPart > 0 { done = false }
+        }
+        digits *= base
+        array = buckets.flatMap { $0 }
+    }
+}
