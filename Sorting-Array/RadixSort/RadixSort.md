@@ -15,6 +15,9 @@
 - Use a stable sorting algorithm (like counting sort) to sort the groups.
 - Repeat the process for each more significant digit, until you reach the most significant digit.
 
+  <img src="![WhatsApp Image 2024-04-03 at 4 35 35 PM](https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/0f1413fb-aa57-463c-a472-c57751fe3714)
+" width="350">
+
 2. MSD Variant:
 - Similar to LSD, but starts from the most significant digit.
 - Sorts and groups numbers based on the current digit using a stable sort, then recursively sorts each group (ignoring the current digit).
