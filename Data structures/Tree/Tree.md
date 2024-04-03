@@ -26,7 +26,9 @@ A tree is a hierarchical data structure that simulates a tree structure with a s
 
 - Binary Search Tree (BST): A binary tree where each node has a comparable key (and an associated value) with the constraint that the key in any node is larger than the keys in all nodes in that node's left subtree and smaller than the keys in all nodes in that node's right subtree.
 
-- AVL Tree: A self-balancing binary search tree where the difference between heights of left and right subtrees cannot be more than one for all nodes.
+- AVL Tree: A **self-balancing binary search tree** where the difference between heights of left and right subtrees cannot be more than one for all nodes.
+    - To covert AVL tree to balanced binary search tree, it requires left or right torations. Ideally
+      RR / LL -> 1 rotation, RL / LR -> 2 rotation it needs to make the tree balanced & to maintain balance factor in between (-1, 0 , 1), Always to calculate from bottom & stop as soon as get first imbalance.
 
 - Red-Black Tree: Another type of self-balancing binary search tree where each node contains an extra bit for denoting the color of the node, either red or black.
 
