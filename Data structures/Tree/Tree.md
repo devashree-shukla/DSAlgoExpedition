@@ -20,9 +20,16 @@ A tree is a hierarchical data structure that simulates a tree structure with a s
 - Height of the Tree: The height of the root node.
 - Depth of a Node: The number of edges from the node to the tree's root node.
 
-## Types of Trees
+## Types of Trees 
 
 - Binary Tree: Each node has at most two children (commonly referred to as the left and right child).
+
+- Full/Strict Binary Tree: Either o or 2 children
+
+- Almost Complete Binary Tree: In all levels for all sibling nodes, fill left node first then right, then only move to next level
+
+- Complete Binary Tree: Exactly two children for all internal nodes, zero children for leaf nodes. No holes in the same level.
+(Ref - https://www.youtube.com/watch?v=I_JuQ5ayPmc&list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa&index=31&pp=iAQB)
 
 - Binary Search Tree (BST): A binary tree where each node has a comparable key (and an associated value) with the constraint that the key in any node is larger than the keys in all nodes in that node's left subtree and smaller than the keys in all nodes in that node's right subtree.
 
@@ -43,8 +50,40 @@ A tree is a hierarchical data structure that simulates a tree structure with a s
     - Priority queue
  
     - Must follow 2 properties:
-      1. Structure property - A tree must be ACBT i.e. 
+      1. Structure property - 
+        - A tree must be ACBT 
+        i.e. go to next level only after filling all nodes in previous level and 
+        that is also from left to right order.
       2. Ordering property - 
+        - Maxheap (root element is maximum node, parent > child at each level) or 
+        - MinHeap (root element is minimum node, parent < child at each level)
+      (Ref - https://www.youtube.com/watch?v=uuot9ItgTEI&list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa&index=32&pp=iAQB)
+
+    - Construction of Heap Tree or Insertion
+      1. Insert key one by one in given order 
+        - Max heap based
+        - Insert key in empty heap O(1) time
+        - O(logn) because height of binary tree comparision + no of swapping in tree
+        - Insert n items -> O(n logn) because height of binary tree comparision + no of swapping in tree for n items
+        
+      2. Heapify mthod - O(n)
+        - Min heap based
+        - Leaf nodes requires 0 swapping
+        - For n keys, n/2 keys will be in leaf nodes
+        - Inserting at leaf node O(1)
+        - start from seecond last level , right most elelment -> start converting them according to min heap
+        - Max swap for a node in level will be equal to no of levels (O(logn)) below the node while converting to min heap 
+        - complexity (Ref - https://www.youtube.com/watch?v=8noP3YjjJCM&list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa&index=35)
+        - Bottom up appraoch fro swaping
+
+    - Deletion 
+      - Can not delete any node directly, but internally after process can be deleted.
+      - Can only delete root node O(logn) Worst case or lowest level right most element directly -> O(1) Best case
+      - Top down approach for swaping
+
+
+
+    - Max height of binary tree will be log n
 
 ## Tree Traversal Methods
 
