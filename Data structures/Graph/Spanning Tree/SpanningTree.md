@@ -17,7 +17,7 @@ A connected subgraph 'S' of graph G(V, E) is said to be spanning tree iff
 1. 'S' should contain all 'V' of 'G'
 2. 'S' should contain (|V| - 1) edges 'E' , making all vertices reachable
  
- 
+<img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/abfeca61-856e-4123-8fd3-1a9929787e89" width="350">
 
 ## Types of Spanning Trees
 
