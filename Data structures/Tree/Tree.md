@@ -35,6 +35,16 @@ A tree is a hierarchical data structure that simulates a tree structure with a s
 - B-Tree/B+ Tree: These are self-balancing tree data structures that maintain sorted data and allow searches, sequential access, insertions, and deletions in logarithmic time. They are commonly used in databases and filesystems.
 
 - Heap: A special tree-based data structure that satisfies the heap property: if A is a parent node of B then the key of node A is ordered with respect to the key of node B with the same ordering applying across the heap.
+    - Insertion
+    - Deletion
+    - HeapSort
+    - Heapify
+    - Array representation
+    - Priority queue
+ 
+    - Must follow 2 properties:
+      1. Structure property - A tree must be ACBT i.e. 
+      2. Ordering property - 
 
 ## Tree Traversal Methods
 
