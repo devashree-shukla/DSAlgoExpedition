@@ -80,8 +80,7 @@ A tree is a hierarchical data structure that simulates a tree structure with a s
       - Can not delete any node directly, but internally after process can be deleted.
       - Can only delete root node O(logn) Worst case or lowest level right most element directly -> O(1) Best case
       - Top down approach for swaping
-
-
+      (Ref - https://www.youtube.com/watch?v=4GsxDWMI7tQ&list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa&index=36&pp=iAQB)
 
     - Max height of binary tree will be log n
 
