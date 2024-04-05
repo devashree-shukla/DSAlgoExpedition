@@ -1,0 +1,54 @@
+struct Edge {
+    var source: Int
+    var destination: Int
+    var weight: Int
+}
+
+func bellmanFord(edges: [Edge], vertices: Int, source: Int) -> (distances: [Int], predecessor: [Int?]) {
+    var distances = [Int](repeating: Int.max, count: vertices)
+    var predecessor = [Int?](repeating: nil, count: vertices)
+    distances[source] = 0
+    
+    // Relaxation step
+    for _ in 0..<vertices - 1 {
+        var didUpdate = false
+        for edge in edges {
+            if distances[edge.source] != Int.max,
+               distances[edge.source] + edge.weight < distances[edge.destination] {
+                distances[edge.destination] = distances[edge.source] + edge.weight
+                predecessor[edge.destination] = edge.source
+                didUpdate = true
+            }
+        }
+        // Early stop if no update occurred
+        if !didUpdate {
+            break
+        }
+    }
+    
+    // Check for negative-weight cycles
+    for edge in edges {
+        if distances[edge.source] != Int.max,
+           distances[edge.source] + edge.weight < distances[edge.destination] {
+            print("Graph contains a negative-weight cycle")
+            return ([], [])
+        }
+    }
+    
+    return (distances, predecessor)
+}
+
+// Example usage
+let edges = [
+    Edge(source: 0, destination: 1, weight: -1),
+    Edge(source: 0, destination: 2, weight: 4),
+    Edge(source: 1, destination: 2, weight: 3),
+    Edge(source: 1, destination: 3, weight: 2),
+    Edge(source: 1, destination: 4, weight: 2),
+    Edge(source: 3, destination: 2, weight: 5),
+    Edge(source: 3, destination: 1, weight: 1),
+    Edge(source: 4, destination: 3, weight: -3)
+]
+
+let result = bellmanFord(edges: edges, vertices: 5, source: 0)
+print("Shortest distances: \(result.distances)")
