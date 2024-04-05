@@ -1,0 +1,58 @@
+import Foundation
+
+class Graph {
+    var vertices: [String]
+    var edges: [[Int]]
+    var numberOfVertices: Int {
+        return vertices.count
+    }
+
+    init(vertices: [String]) {
+        self.vertices = vertices
+        self.edges = Array(repeating: Array(repeating: Int.max, count: vertices.count), count: vertices.count)
+    }
+
+    func addEdge(from source: String, to destination: String, weight: Int) {
+        guard let sourceIndex = vertices.firstIndex(of: source),
+              let destinationIndex = vertices.firstIndex(of: destination) else {
+            print("One of the vertices not found")
+            return
+        }
+        edges[sourceIndex][destinationIndex] = weight
+    }
+
+    func dijkstra(from source: String) -> [String: Int] {
+        guard let sourceIndex = vertices.firstIndex(of: source) else {
+            return [:]
+        }
+
+        var distances = [String: Int]()
+        var visited = Array(repeating: false, count: numberOfVertices)
+        var queue = PriorityQueue<(vertex: String, cost: Int)>(sort: { $0.cost < $1.cost })
+
+        distances[source] = 0
+        queue.enqueue((vertex: source, cost: 0))
+
+        while let (vertex, cost) = queue.dequeue() {
+            guard let vertexIndex = vertices.firstIndex(of: vertex), !visited[vertexIndex] else {
+                continue
+            }
+            visited[vertexIndex] = true
+
+            for edgeIndex in 0..<numberOfVertices {
+                let distanceThroughVertex = cost + edges[vertexIndex][edgeIndex]
+                if distanceThroughVertex < edges[vertexIndex][edgeIndex] {
+                    edges[vertexIndex][edgeIndex] = distanceThroughVertex
+                    let destinationVertex = vertices[edgeIndex]
+                    distances[destinationVertex] = distanceThroughVertex
+                    queue.enqueue((vertex: destinationVertex, cost: distanceThroughVertex))
+                }
+            }
+        }
+
+        return distances
+    }
+}
+
+// Priority Queue implementation is needed for this example
+// A simple version could be implemented or a third-party library could be used

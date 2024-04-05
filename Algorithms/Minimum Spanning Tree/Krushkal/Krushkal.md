@@ -12,13 +12,17 @@ The algorithm uses a disjoint-set data structure (also known as a union-find dat
 
 <img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/915d2c5f-5c4a-47c9-8392-34e99688e1fa" width="350">
 
+### Example:
+
+Imagine a graph with vertices A, B, C, D, and edges connecting them with weights. Kruskal's algorithm sorts the edges in ascending order by weight and starts including them in the MST from the smallest, ensuring no cycles are formed.
+
+Step 1: Start with the smallest edge.
+Step 2: Add the next smallest edge that does not form a cycle.
+Step 3: Repeat until you have a spanning tree.
+
 ## Use Case
 
 Kruskal's algorithm is widely used in network design. For example, when designing a new telecommunications network, laying cables to connect a set of cities, Kruskal's algorithm can be used to ensure that all cities are connected with the least amount of cable, thus minimizing the overall cost.
-
-## Swift Code Implementation
-
-Below is a simplified Swift implementation of Kruskal's algorithm. This implementation assumes a basic understanding of Swift programming and does not cover the implementation of the union-find data structure in detail, which is essential for checking cycles efficiently.
 
 ## Explanation
 
@@ -35,6 +39,8 @@ The efficiency of Kruskal's algorithm depends significantly on the implementatio
 - **Union-Find Operations:** For each edge, we perform two find operations and possibly one union operation. If we use a disjoint-set data structure with both path compression and union by rank, each of these operations can be performed in \(O(\alpha(V))\) time, where \(\alpha\) is the inverse Ackermann function, which grows extremely slowly, and \(V\) is the number of vertices in the graph. In practical terms, \(\alpha(V)\) is considered to be effectively constant, even for very large graphs.
 
 - **Overall Time Complexity:** Taking both the sorting of edges and the union-find operations into account, the overall time complexity of Kruskal's algorithm is \(O(E \log E)\). Since in most sensible implementations of a graph, \(E\) can be at most \(V^2\) (in a complete graph), and \(\log(V^2) = 2\log(V)\), which is O(\log V), the time complexity can also be viewed as \(O(E \log V)\).
+Best case O(n loge)
+Worst case O(e loge)
 
 ## Advantages
 

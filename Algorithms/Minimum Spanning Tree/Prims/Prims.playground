@@ -1,0 +1,50 @@
+import Foundation
+
+// Define a structure for the edges
+struct Edge {
+    var to: Int
+    var weight: Int
+}
+
+// Prim's algorithm function
+func primsAlgorithm(graph: [[Edge]]) -> Int {
+    let startVertex = 0 // Starting the MST from vertex 0
+    var totalWeight = 0 // Total weight of the MST
+    var edgeCount = 0 // Number of edges added to the MST
+    var visited = Array(repeating: false, count: graph.count)
+    visited[startVertex] = true
+    
+    // Assuming graph is connected
+    while edgeCount < graph.count - 1 {
+        var minEdge: (weight: Int, to: Int) = (weight: Int.max, to: -1)
+        for (from, isVisited) in visited.enumerated() where isVisited {
+            for edge in graph[from] {
+                if !visited[edge.to] && edge.weight < minEdge.weight {
+                    minEdge = (edge.weight, edge.to)
+                }
+            }
+        }
+        
+        if minEdge.to != -1 {
+            visited[minEdge.to] = true // Mark the vertex as visited
+            totalWeight += minEdge.weight // Add the weight to the total
+            edgeCount += 1 // Increase the edge count
+            print("Edge added: \(minEdge.to) with weight \(minEdge.weight)")
+        }
+    }
+    
+    return totalWeight
+}
+
+// Example graph represented as adjacency list
+let graph: [[Edge]] = [
+    [Edge(to: 1, weight: 10), Edge(to: 2, weight: 1), Edge(to: 3, weight: 4)], // Edges from vertex 0
+    [Edge(to: 0, weight: 10), Edge(to: 2, weight: 3), Edge(to: 4, weight: 0)], // Edges from vertex 1
+    [Edge(to: 0, weight: 1), Edge(to: 1, weight: 3), Edge(to: 3, weight: 2), Edge(to: 4, weight: 8)], // Edges from vertex 2
+    [Edge(to: 0, weight: 4), Edge(to: 2, weight: 2), Edge(to: 4, weight: 2)], // Edges from vertex 3
+    [Edge(to: 1, weight: 0), Edge(to: 2, weight: 8), Edge(to: 3, weight: 2)]  // Edges from vertex 4
+]
+
+// Running Prim's Algorithm on the example graph
+let totalWeight = primsAlgorithm(graph: graph)
+print("Total weight of MST: \(totalWeight)")

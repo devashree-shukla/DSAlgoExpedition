@@ -29,13 +29,28 @@ A connected subgraph 'S' of graph G(V, E) is said to be spanning tree iff
 
 ## Algorithms for Minimum Spanning Tree
 
-There are two famous algorithms to find the MST:
+There are two famous algorithms to find the MST with minimum cost edges:
+no of edges will be V - 1
 
 - Kruskal's Algorithm: 
     Sorts all the edges of the graph by their weight in ascending order and starts adding them to the spanning tree if they don't form a cycle, until V−1 edges are added.
+    - No cycle 
+    - Best case : n - 1 edges
+    - Worst case : e edges
+    - Intermediate tree will be disconnected, at end will become connected
 
+    (Ref - https://www.youtube.com/watch?v=huQojf2tevI&list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa&index=45&pp=iAQB)
+    
 - Prim's Algorithm: 
     Starts with an arbitrary node and grows the spanning tree by adding the cheapest edge from the graph that connects a vertex in the tree to a vertex outside the tree.
+    - No cycle 
+    - Best case : n - 1 edges
+    - Worst case : e edges
+    - Intermediate trees will be always in connected way 
+
+    Both algorithms gives same minimum cost for edges in answer but technique is different
+
+    (Ref - https://www.youtube.com/watch?v=_KX8GDvRzBc&list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa&index=46&pp=iAQB)
 
 ## Applications
 
