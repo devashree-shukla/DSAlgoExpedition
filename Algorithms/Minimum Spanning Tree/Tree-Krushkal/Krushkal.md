@@ -10,6 +10,8 @@ Kruskal's algorithm is a popular and efficient method used in graph theory to fi
 
 The algorithm uses a disjoint-set data structure (also known as a union-find data structure) to keep track of the subsets of vertices that are already included in the MST, which helps to avoid cycles.
 
+<img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/915d2c5f-5c4a-47c9-8392-34e99688e1fa" width="350">
+
 ## Use Case
 
 Kruskal's algorithm is widely used in network design. For example, when designing a new telecommunications network, laying cables to connect a set of cities, Kruskal's algorithm can be used to ensure that all cities are connected with the least amount of cable, thus minimizing the overall cost.
