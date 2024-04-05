@@ -53,9 +53,15 @@ So, Total complexity = O(v) + O(v) + O(v log v) + O(E log v)
 
 Overall Time complexity = O(E log v)
 
+<img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/61da40f6-d38c-4a2f-a5f4-e6b3b4bebe09" width=350>
+
+<img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/41bd66cd-532b-4bcc-91c5-9031c557d39a" width=350>
+
 ## For negatvie weight
 
 - sometimes do not work
+
+<img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/1dfe2623-5be6-4229-a677-8a46ffcfa541" width=350>
 
 ## Note
 
