@@ -33,4 +33,8 @@ These algorithms execute multiple operations simultaneously, often using multi-c
 These algorithms solve the base case directly and then solve larger problems by calling themselves with simpler inputs. Examples: Binary Search, Quick Sort, Tree Traversals. Each type of algorithm has its unique characteristics and is chosen based on the specific requirements and constraints of the problem at hand. Understanding these different types of algorithms is crucial for computer science students and professionals, as it broadens the range of tools available for problem-solving.
 
 ## PlayTime
-https://www.cs.usfca.edu/~galles/visualization/
+Algorithm Visualization - https://www.cs.usfca.edu/~galles/visualization/
+
+Algorithms in Swift - https://github.com/devashree-shukla/swift-algorithm-club/tree/master
+
+Youttube channel - https://www.youtube.com/playlist?list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa
