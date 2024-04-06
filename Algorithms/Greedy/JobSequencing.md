@@ -51,3 +51,5 @@ O(n), for storing the job sequence and the time slots.
 
 Consider jobs [A, B, C, D] with deadlines [2, 1, 2, 1] and profits [100, 19, 27, 25]. The optimal job sequence that maximizes profit is [C, A] resulting in a total profit of 127.
 
+<img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/e911381f-cb67-4ef8-a518-7e5607a34b0c" width=350>
+
