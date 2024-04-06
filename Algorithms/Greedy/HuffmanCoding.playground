@@ -1,0 +1,27 @@
+class Node {
+    var character: Character?
+    var freq: Int
+    var left: Node?
+    var right: Node?
+    
+    init(character: Character? = nil, freq: Int, left: Node? = nil, right: Node? = nil) {
+        self.character = character
+        self.freq = freq
+        self.left = left
+        self.right = right
+    }
+}
+
+func buildHuffmanTree(frequencies: [Character: Int]) -> Node? {
+    let priorityQueue = frequencies.map { Node(character: $0.key, freq: $0.value) }.sorted(by: { $0.freq < $1.freq })
+    
+    while priorityQueue.count > 1 {
+        let left = priorityQueue.removeFirst()
+        let right = priorityQueue.removeFirst()
+        
+        let merged = Node(freq: left.freq + right.freq, left: left, right: right)
+        priorityQueue.insert(merged, at: priorityQueue.firstIndex { $0.freq > merged.freq } ?? priorityQueue.endIndex)
+    }
+    
+    return priorityQueue.first
+}

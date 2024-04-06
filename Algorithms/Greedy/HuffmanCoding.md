@@ -33,33 +33,22 @@ Given a string (or any data stream), create a Huffman Tree to encode the string 
 
 4. **Generate Codes**: Traverse the Huffman Tree from the root to leaves and assign codes to characters.
 
-## Huffman Tree Construction Pseudo Code
+## Complexity Analysis
 
-```swift
-class Node {
-    var character: Character?
-    var freq: Int
-    var left: Node?
-    var right: Node?
-    
-    init(character: Character? = nil, freq: Int, left: Node? = nil, right: Node? = nil) {
-        self.character = character
-        self.freq = freq
-        self.left = left
-        self.right = right
-    }
-}
+### Time Complexity: 
 
-func buildHuffmanTree(frequencies: [Character: Int]) -> Node? {
-    let priorityQueue = frequencies.map { Node(character: $0.key, freq: $0.value) }.sorted(by: { $0.freq < $1.freq })
-    
-    while priorityQueue.count > 1 {
-        let left = priorityQueue.removeFirst()
-        let right = priorityQueue.removeFirst()
-        
-        let merged = Node(freq: left.freq + right.freq, left: left, right: right)
-        priorityQueue.insert(merged, at: priorityQueue.firstIndex { $0.freq > merged.freq } ?? priorityQueue.endIndex)
-    }
-    
-    return priorityQueue.first
-}
+O(n log n), where n is the number of unique characters. The log n term comes from insertions into the priority queue.
+
+### Space Complexity: 
+
+O(n), for storing the Huffman Tree.
+
+## Encoding and Decoding
+
+### Encoding:
+
+Traverse the path to each character in the Huffman Tree, accumulating '0's and '1's to form the character's bitstring.
+
+### Decoding: 
+
+Traverse the Huffman Tree according to the encoded bitstring, moving left for '0' and right for '1', until reaching a leaf node (character).
