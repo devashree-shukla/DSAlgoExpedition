@@ -1,0 +1,16 @@
+func optimalMergePattern(listSizes: [Int]) -> Int {
+    var priorityQueue = MinHeap(listSizes)
+    var totalCost = 0
+
+    while priorityQueue.count > 1 {
+        let firstSmallest = priorityQueue.remove()
+        let secondSmallest = priorityQueue.remove()
+        
+        let mergeCost = firstSmallest + secondSmallest
+        totalCost += mergeCost
+        
+        priorityQueue.insert(mergeCost)
+    }
+
+    return totalCost
+}
