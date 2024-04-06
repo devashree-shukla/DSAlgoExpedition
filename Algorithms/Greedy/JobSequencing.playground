@@ -1,0 +1,22 @@
+struct Job {
+    var id: Char
+    var deadline: Int
+    var profit: Int
+}
+
+func jobSequencing(jobs: [Job]) -> [Char] {
+    let sortedJobs = jobs.sorted { $0.profit > $1.profit }
+    var result = [Char?]()
+    var timeSlot = [Bool](repeating: false, count: jobs.count)
+
+    for job in sortedJobs {
+        for i in (0..<min(job.deadline, jobs.count)).reversed() {
+            if !timeSlot[i] {
+                timeSlot[i] = true
+                result.append(job.id)
+                break
+            }
+        }
+    }
+    return result.compactMap { $0 }
+}
