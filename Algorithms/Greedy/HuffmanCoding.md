@@ -33,6 +33,8 @@ Given a string (or any data stream), create a Huffman Tree to encode the string 
 
 4. **Generate Codes**: Traverse the Huffman Tree from the root to leaves and assign codes to characters.
 
+<img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/112f2def-7c6b-4747-91b2-b37f0141c867" width=350>
+
 ## Complexity Analysis
 
 ### Time Complexity: 
