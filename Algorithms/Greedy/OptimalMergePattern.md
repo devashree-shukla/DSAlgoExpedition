@@ -48,3 +48,5 @@ Merge lists of size 2 and 3 (cost = 5), new sizes are [4, 5, 6].
 Merge lists of size 4 and 5 (cost = 9), new sizes are [9, 6].
 Merge lists of size 9 and 6 (cost = 15), final size is [15].
 Total cost = 5 + 9 + 15 = 29.
+
+<img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/9ae08eff-803e-4d9b-82b9-1cf6a412a7c5" width=350>
