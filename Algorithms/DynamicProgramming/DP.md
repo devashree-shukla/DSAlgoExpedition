@@ -46,4 +46,3 @@ Fo element n, Pn is Profit, Wn is Weight
 | Time Complexity | O(nW) | O(n log n) |
 | Space Complexity | O(nW) | O(n) |
 | Applications | Resource allocation, capacity planning, scripting and automation tasks | Cutting raw materials without losing too much material, picking through investments and portfolios, generating keys for the Merkle-Hellman algorithm, cognitive radio networks, power allocation |
-| References | [1], [4] | [2], [3] |
