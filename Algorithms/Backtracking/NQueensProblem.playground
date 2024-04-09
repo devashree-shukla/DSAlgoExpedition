@@ -1,0 +1,40 @@
+func solveNQueens(_ n: Int) -> [[String]] {
+    var board = Array(repeating: Array(repeating: ".", count: n), count: n)
+    var solutions = [[String]]()
+    placeQueens(&board, row: 0, &solutions)
+    return solutions
+}
+
+func placeQueens(_ board: inout [[String]], row: Int, _ solutions: inout [[String]]) {
+    if row == board.count {
+        solutions.append(board.map { $0.joined() })
+        return
+    }
+    
+    for col in 0..<board.count {
+        if isValid(board, row: row, col: col) {
+            board[row][col] = "Q"
+            placeQueens(&board, row: row + 1, &solutions)
+            board[row][col] = "."
+        }
+    }
+}
+
+func isValid(_ board: [[String]], row: Int, col: Int) -> Bool {
+    for i in 0..<row {
+        for j in 0..<board.count {
+            if board[i][j] == "Q" && (j == col || i + j == row + col || i - j == row - col) {
+                return false
+            }
+        }
+    }
+    return true
+}
+
+let solutions = solveNQueens(4)
+for solution in solutions {
+    for row in solution {
+        print(row)
+    }
+    print("---")
+}
