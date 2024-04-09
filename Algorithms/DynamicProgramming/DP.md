@@ -20,8 +20,7 @@ Fo element n, Pn is Profit, Wn is Weight
 
  ### Recurrence tree :
  
-                     
-
+<img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/131b42e7-e1c4-4a66-bb46-f65f28c07d06" width=350>
 
 
 
