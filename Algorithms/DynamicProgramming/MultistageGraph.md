@@ -15,3 +15,6 @@ fun(Si, Vj) = Min (
 
 - Vj is an edge 
 
+Example : 
+
+<img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/021500bf-2ac1-4182-98cf-76b122788d85" width=350>
