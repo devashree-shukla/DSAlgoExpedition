@@ -8,7 +8,7 @@ SOS(n, m) = SOS(n - 1, m) if to not consider n
             SOS(n - 1, m - Wn) if to consider n
             OR
             SOS(n - 1, m) if Wn > m (to not consider)
-            OR
+            OR (below is termination condition)
             True , n = 0, m = 0
             False, n == 0, m != 0
             True, n != 0, m = 0

@@ -22,7 +22,7 @@ Fo element n, Pn is Profit, Wn is Weight
 
                      01KS(n - 1, m) if Wn > m
 
-                     0 if n is 0 or m = 0 
+                     0 if n is 0 or m = 0 (Termination condition)
 
  ### Recurrence tree :
 
