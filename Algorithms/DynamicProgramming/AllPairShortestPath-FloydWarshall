@@ -18,6 +18,8 @@
 
     5. Consider Path via 4 & 2 or 1 or 3 for min 
 
+<img src="" width=350>
+
 - # Floyd-Warshall Algorithm
 
 The Floyd-Warshall algorithm is a dynamic programming solution for finding the shortest paths between all pairs of vertices in a weighted graph. This algorithm can handle both directed and undirected graphs and is capable of working with graphs that have negative weight edges, though it cannot process graphs with negative weight cycles.
