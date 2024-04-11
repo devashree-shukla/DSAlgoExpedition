@@ -10,7 +10,7 @@
 
 Example:
 
-
+<img src="https://github.com/devashree-shukla/DSAlgoExpedition/assets/38584944/ddbde90a-6a36-4f84-8637-b9c7205212b7" width=350>
 
 - Space complexity O(V) because stack will have maximum size equal to no of vertices
 - Time complexity O(V + E) beacuase need to visit all node via all edges
