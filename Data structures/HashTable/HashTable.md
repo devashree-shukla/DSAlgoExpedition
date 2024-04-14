@@ -39,12 +39,13 @@ However, performance can degrade to O(n) in the worst case, such as when many co
 
 Hash tables are widely used in situations where rapid access to data is required, such as in database indexing, caching, lookups in compilers and interpreters, and implementing associative arrays.
 
-## Tips for Interview Preparation
+## Summary
 
-- Understand the underlying mechanics of hash functions and how they influence the performance of hash tables.
-- Be prepared to discuss and compare collision resolution strategies.
-- Practice coding simple hash table implementations and operations like insertion, deletion, and search.
-- Think about real-world applications of hash tables and how you might design a hash table for a given scenario.
+- One-pass Hash Table: Iterate through the data once and build the hash table directly.
 
-If you have any specific questions or need clarification on any of these points, feel free to ask!
+- Two-pass Hash Table:
+    - First pass: Iterate through the data to compute hash values and store them temporarily.
+    - Second pass: Build the final hash table using the temporary hash values.
+
+In practice, the choice between one-pass and two-pass often depends on the specific requirements of your application, the size of the data set, and the available memory. One-pass can be more memory-efficient, while two-pass might provide more flexibility or optimization opportunities.
 
