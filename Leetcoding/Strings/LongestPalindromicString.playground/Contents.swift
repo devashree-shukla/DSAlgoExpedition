@@ -5,7 +5,7 @@ func isPalindrome(s: [Character], left: Int, right: Int) -> Int {
     var count: Int = 0
 
     while 0 <= left, left <= right, right < s.count, s[left] == s[right] {
-      print("\(s[left]) \(s[right])")
+      //print("\(s[left]) \(s[right])")
         count += 1
       left -= 1
       right += 1
@@ -17,18 +17,15 @@ func isPalindrome(s: [Character], left: Int, right: Int) -> Int {
 func longestPalindrome(_ s: String) -> String {
     var longestPalindromicString = ""
     let s: [Character] = Array(s)
-    var result: Int = 0
     
     for i in 0 ..< s.count {
-        //print(i)
-        print(s[i])
         let odd: Int = isPalindrome(s: s, left: i, right: i)
         let even: Int = isPalindrome(s: s, left: i, right: i+1)
-//        result += odd + even
-//        print(odd)
-//        print(even)
-//        print(result)
-//        print()
+//        if odd || even {
+//            longestPalindromicString
+//        }
+       // result += odd + even
+       
     }
     return longestPalindromicString
 }
