@@ -12,10 +12,6 @@ var numericalGrid: [[Int]] = [
     [4, 5, 6]
 ]
 
-In Python: matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-
-In Java: int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-
 ## Basic Matrix Operations
 
 - Addition and Subtraction: You can add or subtract two matrices if they have the same dimensions. Add or subtract corresponding elements.
@@ -39,19 +35,3 @@ Traversing a matrix means visiting every element once. Common traversal patterns
 - Diagonal Traversal: There are two main diagonals. For the primary diagonal, elements satisfy the condition row index = column index. The secondary diagonal can be traversed by iterating through elements where row index + column index = size of matrix - 1.
 
 - Spiral Traversal: Start from the outer layer and progressively move towards the center, rotating direction at the edges.
-
-## Practice Problems
-
-To get better, solve problems involving these concepts. Start with simple ones like matrix addition, then move to more complex problems like rotating a matrix, finding the spiral order traversal, or even solving puzzles like Sudoku which heavily use matrix manipulation.
-
-## Tips for Interview Preparation
-
-- Understand the Fundamentals: Make sure you understand how to declare, initialize, and manipulate multi-dimensional arrays in your language of choice.
-- Solve Problems: Practice with online coding platforms. Focus on matrix problems to improve your speed and accuracy.
-- Know the Common Patterns: Be comfortable with different traversal patterns, as these often form the basis of more complex problems.
-- Optimize Your Solutions: Always consider the time and space complexity of your solutions. Interviewers often look for optimized approaches.
-Resources
-- Online Coding Platforms: Websites like LeetCode, HackerRank, and CodeSignal offer plenty of practice problems.
-- Textbooks and Online Courses: Look for courses and books focused on data structures and algorithms.
-
-By focusing on these areas, you'll be well-prepared to handle questions about multi-dimensional arrays and matrix operations in your interviews. If you have specific questions or need explanations on any of the concepts mentioned, feel free to ask!
